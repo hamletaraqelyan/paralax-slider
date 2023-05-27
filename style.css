@@ -1,0 +1,49 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #131314;
+  margin: 0;
+  overflow: hidden;
+}
+
+:root {
+  --image-width: 45vh;
+  --image-height: 60vh;
+}
+
+body::after,
+body::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: white;
+}
+
+body::before {
+  width: 1px;
+  height: 20px;
+}
+
+#image-track {
+  display: flex;
+  gap: 3vmin;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-width) / 2);
+  transform: translate(0, -50%);
+  user-select: none;
+  will-change: transform;
+}
+
+#image-track > .image {
+  border-radius: 5px;
+  width: var(--image-width);
+  height: var(--image-height);
+  object-position: 100% center;
+  object-fit: cover;
+}

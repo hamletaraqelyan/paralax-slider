@@ -1,4 +1,5 @@
 const track = document.getElementById("image-track");
+const mouse = document.getElementById("mouse");
 const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
 
 const handleOnUp = () => {
@@ -7,6 +8,14 @@ const handleOnUp = () => {
 };
 
 const handleOnMove = (e) => {
+  mouse.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+  // mouse.animate(
+  //   {
+  //     transform: `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`,
+  //   },
+  //   { duration: 500, fill: "forwards" }
+  // );
+
   if (track.dataset.mouseDownAt === "0") return;
 
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,

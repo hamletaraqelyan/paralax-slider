@@ -4,13 +4,33 @@ body {
   background-color: #131314;
   margin: 0;
   overflow: hidden;
+  cursor: none;
+}
+
+#mouse {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: thin solid white;
+  border-radius: 50%;
+  z-index: 999;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  pointer-events: none;
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
 }
 
 :root {
   --image-width: 45vh;
   --image-height: 60vh;
 }
-
+/* 
 body::after,
 body::before {
   content: "";
@@ -27,7 +47,7 @@ body::before {
 body::before {
   width: 1px;
   height: 20px;
-}
+} */
 
 #image-track {
   display: flex;
@@ -46,4 +66,5 @@ body::before {
   height: var(--image-height);
   object-position: 100% center;
   object-fit: cover;
+  will-change: object-position;
 }
